@@ -1,2 +1,1 @@
-# AdventofCode2022
- 
+Following https://adventofcode.com/2022/about
