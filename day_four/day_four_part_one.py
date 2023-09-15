@@ -13,17 +13,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-score_mapping: dict[str, int] = {
-    'AX': 3, 'AY': 4, 'AZ': 5,
-    'BX': 1, 'BY': 5, 'BZ': 9,
-    'CX': 2, 'CY': 6, 'CZ': 7,
-}
-
-def rock_paper_scissor(opponent: str, you: str) -> int:
-    return score_mapping.get(opponent + you, -999)
-
+# Use the dictionary to get the priority value
 with open(file="in.txt", mode="r", encoding="utf8") as f:
-    rounds: list[str] = [line.strip() for line in f]
-
-total_score: int = sum(rock_paper_scissor(*round.split()) for round in rounds)
-print(total_score)
+    rucksacks: list[str] = f.read().splitlines()
