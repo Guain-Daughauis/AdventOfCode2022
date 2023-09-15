@@ -19,7 +19,7 @@ def rock_paper_scissor(opponent: str, you: str) -> int:
         'BX': 1, 'BY': 5, 'BZ': 9,
         'CX': 2, 'CY': 6, 'CZ': 7,
     }
-    return score_mapping.get(opponent + you, -99999999)
+    return score_mapping.get(opponent + you, -999)
 
 with open(file="in.txt", mode="r", encoding="utf8") as f:
     rounds: list[str] = [line.strip() for line in f]
