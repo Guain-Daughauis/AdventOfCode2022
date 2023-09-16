@@ -14,5 +14,18 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 # Use the dictionary to get the priority value
+
 with open(file="in.txt", mode="r", encoding="utf8") as f:
-    rucksacks: list[str] = f.read().splitlines()
+    lines: list[str] = [line.strip() for line in f]
+
+overlaps = 0
+
+for line in lines:
+    elf_a, elf_b = line.split(',')
+    elf_a_min, elf_a_max = map(int, elf_a.split('-'))
+    elf_b_min, elf_b_max = map(int, elf_b.split('-'))
+    
+    if (elf_a_min <= elf_b_min <= elf_b_max <= elf_a_max) or (elf_b_min <= elf_a_min <= elf_a_max <= elf_b_max):
+        overlaps += 1
+
+print(overlaps)
